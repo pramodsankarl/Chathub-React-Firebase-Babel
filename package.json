@@ -1,0 +1,19 @@
+{
+  "name": "simple-chat-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://pramodsankarl@github.com/pramodsankarl/simple-chat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pramodsankarl/simple-chat/issues"
+  },
+  "homepage": "https://github.com/pramodsankarl/simple-chat"
+}
