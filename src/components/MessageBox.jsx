@@ -1,11 +1,32 @@
 import React from 'react';
 import mui from 'material-ui';
+import trim from 'trim';
 
 let {Card} = mui;
 
 class MessageBox extends React.Component{
     constructor(props){
         super(props);
+
+        this.state={
+            message:''
+        };
+    }
+
+    onChange(e){
+        this.setState({
+            message: e.target.value
+        });
+    }
+
+    onKeyUp(e){
+        if(e.keyCode === 13 && trim(e.target.value)){
+            e.preventDefault();
+            this.setState({
+                message:''
+            });
+            console.log('Sent a new message', e.target.value);
+        }
     }
 
     render() {
@@ -24,7 +45,10 @@ class MessageBox extends React.Component{
                     color: '#555',
                     fontSize: 14,
                     outline: 'auto 0'
-                }}/>
+                }}
+                          value={this.state.message}
+                          onKeyUp={this.onKeyUp.bind(this)}
+                          onChange={this.onChange.bind(this)}/>
             </Card>);
     }
 

@@ -16,7 +16,14 @@ class MessageList extends React.Component{
 
         this.firebaseRef = new FireBase('https://chat-hub.firebaseio.com/messages');
         this.firebaseRef.once('value', (dataSnapshot)=>{
-           let messages = dataSnapshot.val();
+
+            let messObj = dataSnapshot.val(),
+                messages = _(messObj).keys().map((key)=>({
+                        ..._.clone(messObj[key]),
+                        key
+                    }
+            )).valueOf();
+
             this.setState({messages});
         });
     }
