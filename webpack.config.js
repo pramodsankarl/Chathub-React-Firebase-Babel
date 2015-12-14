@@ -25,6 +25,11 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'react-hot!babel'
+            },
+            {
+                test: /\.less$/,
+                include:path.join(__dirname, 'src'),
+                loader: "style!css!less"
             }
         ]
     }
