@@ -11,25 +11,16 @@ class MessageList extends React.Component{
         super(props);
 
         this.state = {
-            messages:[]
+            messages:{}
         }
 
         this.firebaseRef = new FireBase('https://chat-hub.firebaseio.com/messages');
-        this.firebaseRef.once('value', (dataSnapshot)=>{
-
-            let messObj = dataSnapshot.val(),
-                messages = _(messObj).keys().map((key)=>({
-                        ..._.clone(messObj[key]),
-                        key
-                    }
-            )).valueOf();
-
-            this.setState({messages});
-        });
+        this.firebaseRef.on('child_added', (...args) => this.handleMessageAdd(...args));
+        this.firebaseRef.on('child_removed', (...args)=> this.handleMessageRemove(...args));
     }
 
     render(){
-        let messageNodes = this.state.messages.map((message) => (
+        let messageNodes = _.values(this.state.messages).map((message) => (
             <Message message={message.message} />
         ));
 
@@ -41,6 +32,24 @@ class MessageList extends React.Component{
                 <List>{messageNodes}</List>
             </Card>
         );
+    }
+
+    handleMessageAdd(message){
+        if(this.state.messages[message.key()]){
+            return;
+        }
+
+        let messObj = message.val(),
+            key = message.key();
+
+        this.state.messages[key] = messObj;
+
+        this.setState({messages : this.state.messages});
+    }
+
+    handleMessageRemove(message){
+        delete this.state.messages[message.key()];
+        this.setState({messages:this.state.messages})
     }
 
 }
