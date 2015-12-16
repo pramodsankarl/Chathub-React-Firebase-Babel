@@ -51,7 +51,6 @@ class MessageList extends React.Component{
         delete this.state.messages[message.key()];
         this.setState({messages:this.state.messages})
     }
-
 }
 
 export default MessageList;
