@@ -76,6 +76,25 @@ class ChatStore{
         });
     }
 
+    @bind(Actions.sendMessage)
+    sendMessage(message){
+        this.state.message = message;
+        setTimeout(this.getInstance().sendMessage, 0);
+    }
+
+    @bind(Actions.messageReceived)
+    messageReceived(message){
+
+        let messages = this.state.messages || {};
+
+        if( messages[message.key]){
+            return;
+        }
+
+        messages[message.key] = message;
+        this.setState({messages});
+    }
+
 }
 
 export default Alt.createStore(ChatStore);

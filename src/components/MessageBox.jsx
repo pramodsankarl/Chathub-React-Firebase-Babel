@@ -1,7 +1,7 @@
 import React from 'react';
 import mui from 'material-ui';
 import trim from 'trim';
-import FireBase from 'firebase';
+import Actions from '../actions';
 
 
 let {Card} = mui;
@@ -13,8 +13,6 @@ class MessageBox extends React.Component{
         this.state={
             message:''
         };
-
-        this.firebaseRef = new FireBase('https://chat-hub.firebaseio.com/messages');
     }
 
     onChange(e){
@@ -28,9 +26,7 @@ class MessageBox extends React.Component{
 
             let {message} = this.state;
 
-            this.firebaseRef.push({
-                message
-            });
+            Actions.sendMessage(message);
 
             this.setState({
                 message:''

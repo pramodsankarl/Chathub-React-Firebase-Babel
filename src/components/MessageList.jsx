@@ -31,7 +31,7 @@ class MessageList extends React.Component{
 
         if(!this.props.messagesLoading){
             messageNodes = _.values(this.props.messages).map((message) => (
-                <Message message={message.message} />
+                <Message message={message} />
             ));
         }else{
             messageNodes = (<CircularProgress mode="indeterminate" style={{
