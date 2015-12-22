@@ -1,4 +1,4 @@
-### A Simple real-time chat hub :
+### A simple real-time chat hub :
  - React
  - Alt
  - Material UI
