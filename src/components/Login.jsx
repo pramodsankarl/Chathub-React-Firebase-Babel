@@ -7,8 +7,12 @@ let {Card, CardText, RaisedButton} = mui;
 class Login extends React.Component{
 
     onClick(){
-        Actions.login();
+        Actions.login(this.context.router);
     }
+
+    static contextTypes = {
+        router: React.PropTypes.func.isRequired
+    };
 
     render(){
         return (
@@ -23,7 +27,7 @@ class Login extends React.Component{
                     Please use your Google account to login..
                 </CardText>
                 <RaisedButton style={{ display: 'block' }}
-                onClick={this.onClick.bind(this)} label="Log in with Google">
+                    onClick={this.onClick.bind(this)} label="Log in with Google">
                 </RaisedButton>
             </Card>
         );

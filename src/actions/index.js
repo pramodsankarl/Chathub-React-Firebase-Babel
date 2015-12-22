@@ -19,7 +19,7 @@ class Actions {
         );
     }
 
-    login(args) {
+    login(router) {
         return (dispatch) => {
             let fRef = new Firebase('https://chat-hub.firebaseio.com');
             fRef.authWithOAuthPopup('google', (err, user)=>{
@@ -27,6 +27,8 @@ class Actions {
                     return;
                 }
                 dispatch(user);
+
+                router.transitionTo('/chat');
             });
         }
     }

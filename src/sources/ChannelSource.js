@@ -5,7 +5,7 @@ let firebaseRef = new Firebase('https://chat-hub.firebaseio.com/channels');
 let ChannelSource = {
     getChannels: {
         remote(){
-            return new Promise((res, rej)=>{
+            return new Promise((res)=>{
                 firebaseRef.once('value', (dataSnapshot)=>{
                    let channels = dataSnapshot.val();
                     res(channels);
