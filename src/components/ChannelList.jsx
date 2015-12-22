@@ -11,7 +11,6 @@ let {Card, List, CircularProgress} = mui;
 class ChannelList extends React.Component{
     constructor(props){
         super(props);
-        ChatStore.getChannels();
     }
 
     static getStores(){
@@ -20,6 +19,19 @@ class ChannelList extends React.Component{
 
     static getPropsFromStores(){
         return ChatStore.getState();
+    }
+
+    componentDidMount(){
+        this.selectedChannel = this.props.params.channel;
+        ChatStore.getChannels(this.selectedChannel);
+    }
+
+    componentWillReceiveProps(nextProps){
+        let {channel} = nextProps.params;
+        if(this.selectedChannel !== channel){
+            this.selectedChannel = channel;
+            ChatStore.getChannels(channel);
+        }
     }
 
     render(){

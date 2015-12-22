@@ -53,11 +53,10 @@ class ChatStore{
     receivedChannels(channels){
         let selectedChannel = null;
 
-        _(channels).keys().each((k, idx)=>{
+        _(channels).keys().each((k)=>{
             channels[k].key = k;
-            channels[k].selected = idx ===0;
-            if(!selectedChannel){
-                selectedChannel = channels[k];
+            if(channels[k].selected){
+              selectedChannel = channels[k];
             }
         }).value();
 

@@ -17,16 +17,11 @@ class Channel extends React.Component{
         }
         return (
             <ListItem
-            style={style} onClick={this.selectChannel.bind(this)}>
+                href={'/#/chat/' + this.props.channel.key}
+                style={style}>
                 {this.props.channel.name}
             </ListItem>);
     }
-
-    selectChannel(){
-        console.log('Channel Selected is:', this.props.channel);
-        Actions.channelSelected(this.props.channel);
-    }
-
 }
 
 export default Channel;
