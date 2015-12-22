@@ -5,7 +5,6 @@ import MessageBox from './MessageBox.jsx';
 import Login from './Login.jsx';
 import connectToStores from 'alt/utils/connectToStores';
 import ChatStore from '../stores/ChatStore';
-
 import mui from 'material-ui';
 
 let ThemeManager = new mui.Styles.ThemeManager();
@@ -67,7 +66,7 @@ class App extends React.Component{
                 <AppBar title="Chat Hub"/>
                 {view}
             </section>
-        )
+        );
     }
 }
 

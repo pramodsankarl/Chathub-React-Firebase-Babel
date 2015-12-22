@@ -3,6 +3,7 @@ import Channel from './Channel.jsx';
 import mui from 'material-ui';
 import connectToStores from 'alt/utils/connectToStores';
 import ChatStore from '../stores/ChatStore';
+import _ from 'lodash';
 
 let {Card, List, CircularProgress} = mui;
 

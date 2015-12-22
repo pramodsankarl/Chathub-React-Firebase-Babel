@@ -30,6 +30,10 @@ module.exports = {
                 test: /\.less$/,
                 include:path.join(__dirname, 'src'),
                 loader: "style!css!less"
+            },{
+                test: /(\.jsx|\.js)$/,
+                loader: "eslint-loader",
+                exclude: /node_modules/
             }
         ]
     }

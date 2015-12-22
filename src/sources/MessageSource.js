@@ -5,7 +5,8 @@ let firebaseRef = null;
 let MessageSource = {
     sendMessage: {
       remote(state){
-            return new Promise((res, rej)=>{
+          "use strict";
+            return new Promise((res)=>{
                 if(!firebaseRef){
                     return res();
                 }
@@ -30,8 +31,7 @@ let MessageSource = {
     },
     getMessages: {
         remote(state){
-            return new Promise((res, rej)=>{
-
+            return new Promise((res)=>{
                 if(firebaseRef){
                     firebaseRef.off();
                 }
