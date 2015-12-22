@@ -11,11 +11,9 @@ let MessageSource = {
                 }
 
                 let {message, user} = state,
-                    {google} = user,
                     date = new Date().toUTCString(),
-                    author = google.displayName,
-                    userId = user.uid,
-                    profilePic = google.profileImageURL;
+                    {google, uid: userId} = user,
+                    {displayName: author,profileImageURL : profilePic } = google;
 
                 firebaseRef.push({
                     message,
@@ -24,9 +22,7 @@ let MessageSource = {
                     userId,
                     profilePic
                 });
-
                 res();
-
             });
       },
         success: Actions.messageSendSuccess,

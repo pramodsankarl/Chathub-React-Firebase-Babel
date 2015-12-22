@@ -4,7 +4,7 @@ import trim from 'trim';
 import Actions from '../actions';
 
 
-let {Card} = mui;
+let {Card, TextField} = mui;
 
 class MessageBox extends React.Component{
     constructor(props){
@@ -39,21 +39,15 @@ class MessageBox extends React.Component{
             <Card style={{
             maxWidth: 1200,
             margin: '30px auto',
-            padding: 30
+            padding: 10
             }}>
-                <textarea style={{
-                    width: '100%',
-                    borderColor: '#D0D0D0',
-                    resize: 'none',
-                    borderRadius: 3,
-                    minHeight: 50,
-                    color: '#555',
-                    fontSize: 14,
-                    outline: 'auto 0'
-                }}
-                          value={this.state.message}
-                          onKeyUp={this.onKeyUp.bind(this)}
-                          onChange={this.onChange.bind(this)}/>
+                <TextField
+                    hintText="Say something..."
+                    multiLine={true} fullWidth={true}
+                    value={this.state.message}
+                    onKeyUp={this.onKeyUp.bind(this)}
+                    onChange={this.onChange.bind(this)}/>
+
             </Card>);
     }
 
