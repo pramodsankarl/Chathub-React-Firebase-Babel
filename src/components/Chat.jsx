@@ -7,15 +7,9 @@ import ChatStore from '../stores/ChatStore';
 class Chat extends React.Component{
     render(){
         return  (<section>
-            <div style={{
-                    display:'flex',
-                    flexFlow:'row wrap',
-                    maxWidth:1200,
-                    width:'100%',
-                    margin:'30px auto'
-                    }}>
-                <ChannelList {...this.props} />
-                <MessageList />
+            <div className="hub-container">
+                <ChannelList {...this.props}  />
+                <MessageList className="message-list"/>
             </div>
             <MessageBox />
         </section>);

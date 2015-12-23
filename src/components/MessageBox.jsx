@@ -36,11 +36,7 @@ class MessageBox extends React.Component{
 
     render() {
         return (
-            <Card style={{
-            maxWidth: 1200,
-            margin: '30px auto',
-            padding: 10
-            }}>
+            <Card className="message-box">
                 <TextField
                     hintText="Say something..."
                     multiLine={true} fullWidth={true}

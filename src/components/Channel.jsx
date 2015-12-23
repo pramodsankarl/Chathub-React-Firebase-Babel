@@ -10,15 +10,10 @@ class Channel extends React.Component{
     }
 
     render() {
-        let style = {};
-
-        if(this.props.channel.selected){
-            style.backgroundColor = '#f0f0f0';
-        }
         return (
             <ListItem
                 href={'/#/chat/' + this.props.channel.key}
-                style={style}>
+                 className={ this.props.channel.selected ? 'channel-item selected' : 'channel-item'}>
                 {this.props.channel.name}
             </ListItem>);
     }

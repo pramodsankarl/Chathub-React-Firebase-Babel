@@ -34,41 +34,14 @@ class MessageList extends React.Component{
                 <Message message={message} />
             ));
         }else{
-            messageNodes = (<CircularProgress mode="indeterminate" style={{
-                paddingTop:20,
-                paddingBottom:20,
-                margin: '0 auto',
-                display: 'block',
-                width:'60px'
-            }}/>);
+            messageNodes = (<CircularProgress mode="indeterminate" className="progress-bar"/>);
         }
 
         return (
-            <Card  style={{
-                flexGrow:2,
-                marginLeft: 30
-            }}>
+            <Card  className="message-item">
                 <List>{messageNodes}</List>
             </Card>
         );
-    }
-
-    handleMessageAdd(message){
-        if(this.state.messages[message.key()]){
-            return;
-        }
-
-        let messObj = message.val(),
-            key = message.key();
-
-        this.state.messages[key] = messObj;
-
-        this.setState({messages : this.state.messages});
-    }
-
-    handleMessageRemove(message){
-        delete this.state.messages[message.key()];
-        this.setState({messages:this.state.messages})
     }
 }
 

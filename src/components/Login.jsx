@@ -16,17 +16,11 @@ class Login extends React.Component{
 
     render(){
         return (
-            <Card style={{
-            'maxWidth':'800px',
-            'margin': '30px auto',
-            'padding' : '50px'
-            }}>
-                <CardText style={{
-                'textAlign': 'center'
-                }}>
+            <Card className="login-container">
+                <CardText className="info-text">
                     Please use your Google account to login..
                 </CardText>
-                <RaisedButton style={{ display: 'block' }}
+                <RaisedButton className="btn"
                     onClick={this.onClick.bind(this)} label="Log in with Google">
                 </RaisedButton>
             </Card>

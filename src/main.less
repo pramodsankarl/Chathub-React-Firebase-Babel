@@ -3,3 +3,53 @@
 body {
   margin:0;
 }
+.channel-item{
+  &.selected{
+    background-color: #f0f0f0;
+  }
+}
+
+.progress-bar{
+  padding-top:20px;
+  padding-bottom:20px;
+  margin:0 auto;
+  display: block;
+  width:60px;
+}
+
+.hub-container{
+  display:flex;
+  flex-flow:row wrap;
+  max-width:1200px;
+  width:100%;
+  margin:30px auto;
+  .channel-list{
+    flex-grow: 1;
+  }
+  .message-list{
+    flex-grow: 2;
+  }
+  .message-item{
+    flex-grow:2;
+    margin-left: 30px;
+  }
+}
+
+.message-box{
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 10px;
+}
+
+.login-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 50px;
+
+  .info-text{
+    text-align: center;
+    + div{
+      display: block !important;
+    }
+  }
+}
